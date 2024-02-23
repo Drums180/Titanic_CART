@@ -1,5 +1,3 @@
-![](C:\\Users\\raulc\\OneDrive\\Escritorio\\titanic.gif)
-
 ## Importar la base de datos
 
 # file.choose()
