@@ -1,33 +1,15 @@
----
-title: "Titanic"
-author: "Raul Cantu - A01087683"
-date: "2023-02-14"
-output: 
- html_document:
-    toc: true
-    toc_float: true
-    code_download: true 
----
-
 ![](C:\\Users\\raulc\\OneDrive\\Escritorio\\titanic.gif)
 
 ## Importar la base de datos
 
-```{r}
 # file.choose()
-titanic <- read.csv("/Users/daviddrums180/Downloads/OneDrive_1_22-2-2024/titanic.csv")
-```
+titanic <- read.csv("/Users/daviddrums180/Tec/TitanicCart/titanic.csv")
 
 ## Entender la base de datos
-
-```{r}
 summary(titanic)
 str(titanic)
-```
 
 ## Filtrar base de datos
-
-```{r}
 Titanic <- titanic[,c("pclass","age","sex","survived")]
 Titanic$survived <- as.factor(ifelse(Titanic$survived==0, "Murio", "Sobrevive"))
 Titanic$pclass <- as.factor(Titanic$pclass)
@@ -39,11 +21,8 @@ sapply(Titanic, function(x) sum(is.na(x)))
 
 Titanic <- na.omit(Titanic)
 
-```
-
 ## Crear arbol de decisión
 
-```{r}
 # install.packages("rpart")
 library(rpart)
 arbol <- rpart(formula=survived ~ ., data = Titanic)
@@ -53,7 +32,6 @@ arbol
 library(rpart.plot)
 rpart.plot(arbol)
 prp(arbol,extra = 7,prefix = "fraccion")
-```
 
 ## Conclusiones
 
